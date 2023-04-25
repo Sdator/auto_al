@@ -17,12 +17,10 @@ jobs:
     name: Aliyun Signin
     # 运行在 ubuntu-latest 系统上
     runs-on: ubuntu-latest
-    # 指定环境名称
+    # 指定环境名称  读取安全变量需要用secrets前缀
     environment: bot
     # 定义任务中的步骤
     steps:
-  
-          
       - name: 签到
        # 使用 ImYrS/aliyun-auto-signin@main 这个 action
         uses: ImYrS/aliyun-auto-signin@main
@@ -49,15 +47,4 @@ jobs:
           CQHTTP_ENDPOINT: ${{ secrets.CQHTTP_ENDPOINT }}
           CQHTTP_USER_ID: ${{ secrets.CQHTTP_USER_ID }}
           CQHTTP_ACCESS_TOKEN: ${{ secrets.CQHTTP_ACCESS_TOKEN }}
-      - name: ENV 不带环境
-        run: echo "ABCD = $ABCD"
-      - name: ENV 带环境
-        run: echo "ABCD = $ABCD"
-        env:
-          ABCD: ${{ secrets.ABCD }}
-      - name: secrets 不带环境
-        run: echo "PUSH_TYPES = $PUSH_TYPES"
-      - name: secrets 带环境
-        run: echo "PUSH_TYPES = $PUSH_TYPES"
-        env:
-          PUSH_TYPES: ${{ secrets.PUSH_TYPES }}
+
