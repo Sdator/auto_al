@@ -25,9 +25,13 @@ jobs:
         run: echo "TELEGRAM_BOT_TOKEN = $TELEGRAM_BOT_TOKEN"
         env:
           TELEGRAM_BOT_TOKEN: ${{ env.TELEGRAM_BOT_TOKEN }}
-      - run: echo "TELEGRAM_CHAT_ID = $TELEGRAM_CHAT_ID"
-        env:
-          TELEGRAM_CHAT_ID: ${{ env.TELEGRAM_CHAT_ID }}
       - run: echo "ABCD = $ABCD"
         env:
-          TELEGRAM_CHAT_ID: ${{ env.ABCD }}
+          TELEGRAM_CHAT_ID: ${{ secrets.ABCD }}
+      - name: 没有环境
+        run: echo "PUSH_TYPES = $PUSH_TYPES"
+      - name: 带环境
+        run: echo "PUSH_TYPES = $PUSH_TYPES"
+        env:
+          TELEGRAM_CHAT_ID: ${{ secrets.PUSH_TYPES }}
+   
