@@ -22,7 +22,7 @@ jobs:
     # 定义任务中的步骤
     steps:
       - name: ABCD
-      - run: echo "ABCD = $ABCD"
+        run: echo "ABCD = $ABCD"
         env:
           ABCD: ${{ secrets.ABCD }}
       - name: 没有环境
@@ -58,7 +58,7 @@ jobs:
           CQHTTP_USER_ID: ${{ secrets.CQHTTP_USER_ID }}
           CQHTTP_ACCESS_TOKEN: ${{ secrets.CQHTTP_ACCESS_TOKEN }}
       - name: ABCD
-      - run: echo "ABCD = $ABCD"
+        run: echo "ABCD = $ABCD"
         env:
           ABCD: ${{ secrets.ABCD }}
       - name: 没有环境
