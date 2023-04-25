@@ -17,6 +17,8 @@ jobs:
     name: Aliyun Signin
     # 运行在 ubuntu-latest 系统上
     runs-on: ubuntu-latest
+    # 指定环境名称
+    environment: bot
     # 定义任务中的步骤
     steps:
       # 使用 ImYrS/aliyun-auto-signin@main 这个 action
