@@ -31,7 +31,6 @@ jobs:
         run: echo "PUSH_TYPES = $PUSH_TYPES"
         env:
           PUSH_TYPES: ${{ secrets.PUSH_TYPES }}
-   
       - name: 签到
        # 使用 ImYrS/aliyun-auto-signin@main 这个 action
         uses: ImYrS/aliyun-auto-signin@main
