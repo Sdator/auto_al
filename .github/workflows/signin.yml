@@ -18,19 +18,23 @@ jobs:
     # 运行在 ubuntu-latest 系统上
     runs-on: ubuntu-latest
     # 指定环境名称
-    environment: bot
+    # environment: bot
     # 定义任务中的步骤
     steps:
-      - name: ABCD
+      - name: ENV 不带环境
+        run: echo "ABCD = $ABCD"
+      - name: ENV 带环境
         run: echo "ABCD = $ABCD"
         env:
           ABCD: ${{ secrets.ABCD }}
-      - name: 没有环境
+      - name: secrets 不带环境
         run: echo "PUSH_TYPES = $PUSH_TYPES"
-      - name: 带环境
+      - name: secrets 带环境
         run: echo "PUSH_TYPES = $PUSH_TYPES"
         env:
           PUSH_TYPES: ${{ secrets.PUSH_TYPES }}
+          
+          
       - name: 签到
        # 使用 ImYrS/aliyun-auto-signin@main 这个 action
         uses: ImYrS/aliyun-auto-signin@main
@@ -41,8 +45,8 @@ jobs:
           PUSH_TYPES: ${{ secrets.PUSH_TYPES}}
           DO_NOT_REWARD: 'false'
           SERVERCHAN_SEND_KEY: ${{ secrets.SERVERCHAN_SEND_KEY }}
-          TELEGRAM_BOT_TOKEN: ${{ env.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ env.TELEGRAM_CHAT_ID }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
           PUSHPLUS_TOPIC: ${{ secrets.PUSHPLUS_TOPIC }}
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
@@ -57,14 +61,15 @@ jobs:
           CQHTTP_ENDPOINT: ${{ secrets.CQHTTP_ENDPOINT }}
           CQHTTP_USER_ID: ${{ secrets.CQHTTP_USER_ID }}
           CQHTTP_ACCESS_TOKEN: ${{ secrets.CQHTTP_ACCESS_TOKEN }}
-      - name: ABCD
+      - name: ENV 不带环境
+        run: echo "ABCD = $ABCD"
+      - name: ENV 带环境
         run: echo "ABCD = $ABCD"
         env:
           ABCD: ${{ secrets.ABCD }}
-      - name: 没有环境
+      - name: secrets 不带环境
         run: echo "PUSH_TYPES = $PUSH_TYPES"
-      - name: 带环境
+      - name: secrets 带环境
         run: echo "PUSH_TYPES = $PUSH_TYPES"
         env:
           PUSH_TYPES: ${{ secrets.PUSH_TYPES }}
-   
