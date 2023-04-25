@@ -21,8 +21,16 @@ jobs:
     environment: bot
     # 定义任务中的步骤
     steps:
+      - name: 测试变量
+        run: echo "TELEGRAM_BOT_TOKEN = $TELEGRAM_BOT_TOKEN"
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ env.TELEGRAM_BOT_TOKEN }}
+      - run: echo "TELEGRAM_CHAT_ID = $TELEGRAM_CHAT_ID"
+        env:
+          TELEGRAM_CHAT_ID: ${{ env.TELEGRAM_CHAT_ID }}
+      - name: 签到
       # 使用 ImYrS/aliyun-auto-signin@main 这个 action
-      - uses: ImYrS/aliyun-auto-signin@main
+        uses: ImYrS/aliyun-auto-signin@main
         # 设置 action 所需的参数
         with:
           REFRESH_TOKENS: ${{ secrets.REFRESH_TOKENS }}
